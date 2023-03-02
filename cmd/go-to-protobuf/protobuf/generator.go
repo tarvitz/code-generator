@@ -743,7 +743,7 @@ func assembleProtoFile(w io.Writer, f *generator.File) {
 	fmt.Fprint(w, "syntax = \"proto2\";\n\n")
 
 	if len(f.PackageName) > 0 {
-		fmt.Fprintf(w, "package %s;\n\n", f.PackageName)
+		fmt.Fprintf(w, "package %s;\n\n", strings.ReplaceAll(f.PackageName, "go.devops.iponweb.net.k8s", "go.devops.iponweb.net._k8s"))
 	}
 
 	if len(f.Imports) > 0 {
